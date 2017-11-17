@@ -8,7 +8,11 @@ ImGray = rgb2gray(Im);
 
 E = GetSobelEnergy(ImGray); % Inutile.....
 
-[EGrad, ~] = imgradient(ImGray);
+[ESobel, ~] = imgradient(ImGray,'sobel');
+[EPrewitt, ~] = imgradient(ImGray,'prewitt');
+[Ecentral, ~] = imgradient(ImGray,'central');
+[Eintermediate, ~] = imgradient(ImGray,'intermediate');
+[Eroberts, ~] = imgradient(ImGray,'roberts');
 
 %% Affichages
 Fig1 = figure(1);								% Creation d'une fenetre pour l'image de base
@@ -28,6 +32,6 @@ title('E');
 
 subplot(1, 3, 3);
 %hold on;	axis off;
-imagesc(cat(3,EGrad,EGrad,EGrad));
+imagesc(cat(3,EPrewitt,EPrewitt,EPrewitt));
 %hold off;
 title('EGrad');
