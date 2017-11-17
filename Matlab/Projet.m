@@ -1,7 +1,7 @@
 %% Initialisation
 close all;					% Fermeture des figures
 %Lire l'image & Passage en double
-file = '../Res/de.png';
+file = '../Res/charles_original.jpg';
 Im = imread(file);
 Im = im2double(Im);
 ImGray = rgb2gray(Im);
