@@ -18,20 +18,38 @@ E = GetSobelEnergy(ImGray); % Inutile.....
 Fig1 = figure(1);								% Creation d'une fenetre pour l'image de base
 Fig1.Name = 'Coupe minimale entre deux patchs';	% Nom de la fenetre
 
-subplot(1, 3, 1);
+subplot(2, 3, 1);
 %hold on;	axis off;
 imagesc(Im);
 %hold off;
 title('Im');
 
-subplot(1, 3, 2);
+subplot(2, 3, 2);
 %hold on;	axis off;
-imagesc(cat(3,E,E,E));
+imagesc(cat(3,ESobel,ESobel,ESobel));
 %hold off;
-title('E');
+title('ESobel');
 
-subplot(1, 3, 3);
+subplot(2, 3, 3);
 %hold on;	axis off;
 imagesc(cat(3,EPrewitt,EPrewitt,EPrewitt));
 %hold off;
-title('EGrad');
+title('EPrewitt');
+
+subplot(2, 3, 4);
+%hold on;	axis off;
+imagesc(cat(3,Ecentral,Ecentral,Ecentral));
+%hold off;
+title('Ecentral');
+
+subplot(2, 3, 5);
+%hold on;	axis off;
+imagesc(cat(3,Eintermediate,Eintermediate,Eintermediate));
+%hold off;
+title('Eintermediate');
+
+subplot(2, 3, 6);
+%hold on;	axis off;
+imagesc(cat(3,Eroberts,Eroberts,Eroberts));
+%hold off;
+title('Eroberts');
