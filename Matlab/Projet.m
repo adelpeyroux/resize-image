@@ -8,48 +8,20 @@ ImGray = rgb2gray(Im);
 
 E = GetSobelEnergy(ImGray); % Inutile.....
 
-[ESobel, ~] = imgradient(ImGray,'sobel');
-[EPrewitt, ~] = imgradient(ImGray,'prewitt');
-[Ecentral, ~] = imgradient(ImGray,'central');
-[Eintermediate, ~] = imgradient(ImGray,'intermediate');
-[Eroberts, ~] = imgradient(ImGray,'roberts');
+[E_Sobel, ~] = imgradient(ImGray,'sobel');
+[E_Prewitt, ~] = imgradient(ImGray,'prewitt');
+[E_Central, ~] = imgradient(ImGray,'central');
+[E_Intermediate, ~] = imgradient(ImGray,'intermediate');
+[E_Roberts, ~] = imgradient(ImGray,'roberts');
+
+E_F_S = Error_Flow(E_Sobel);
+E_F_P = Error_Flow(E_Prewitt);
+E_F_C = Error_Flow(E_Central);
+E_F_I = Error_Flow(E_Intermediate);
+E_F_R = Error_Flow(E_Roberts);
+
 
 %% Affichages
-Fig1 = figure(1);								% Creation d'une fenetre pour l'image de base
-Fig1.Name = 'Coupe minimale entre deux patchs';	% Nom de la fenetre
-
-subplot(2, 3, 1);
-%hold on;	axis off;
-imagesc(Im);
-%hold off;
-title('Im');
-
-subplot(2, 3, 2);
-%hold on;	axis off;
-imagesc(cat(3,ESobel,ESobel,ESobel));
-%hold off;
-title('ESobel');
-
-subplot(2, 3, 3);
-%hold on;	axis off;
-imagesc(cat(3,EPrewitt,EPrewitt,EPrewitt));
-%hold off;
-title('EPrewitt');
-
-subplot(2, 3, 4);
-%hold on;	axis off;
-imagesc(cat(3,Ecentral,Ecentral,Ecentral));
-%hold off;
-title('Ecentral');
-
-subplot(2, 3, 5);
-%hold on;	axis off;
-imagesc(cat(3,Eintermediate,Eintermediate,Eintermediate));
-%hold off;
-title('Eintermediate');
-
-subplot(2, 3, 6);
-%hold on;	axis off;
-imagesc(cat(3,Eroberts,Eroberts,Eroberts));
-%hold off;
-title('Eroberts');
+Draw_6_Im(Im, 'Im', E_Sobel, 'Gradient Sobel', E_Prewitt, 'Gradient Prewitt', E_Central, 'Gradient Central', E_Intermediate, 'Gradient Intermediate', E_Roberts, 'Gradient Roberts', 1,'Gradients');
+Draw_6_Im_Heat(Im, 'Im', E_Sobel, 'Gradient Sobel', E_Prewitt, 'Gradient Prewitt', E_Central, 'Gradient Central', E_Intermediate, 'Gradient Intermediate', E_Roberts, 'Gradient Roberts', 2,'Gradients Heat');
+Draw_6_Im_Heat(Im, 'Im', E_F_S, 'Gradient Sobel', E_F_P, 'Gradient Prewitt', E_F_C, 'Gradient Central', E_F_I, 'Gradient Intermediate', E_F_R, 'Gradient Roberts', 3,'Flow');
