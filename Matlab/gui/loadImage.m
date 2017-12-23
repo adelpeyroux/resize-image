@@ -5,4 +5,4 @@ function [image, fichier, chemin] = loadImage()
   end
 
   image = imread(strcat([chemin, fichier]));
-end;
+end

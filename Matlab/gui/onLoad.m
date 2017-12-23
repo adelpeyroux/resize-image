@@ -7,7 +7,7 @@ function onLoad(source, event)
   [input, file, path] = loadImage();
   
   set(filetxt, 'String', file);
-  set(restxt, 'String', mat2str(size(img)));
+  set(restxt, 'String', mat2str(size(input)));
   
   image(preview, input);
 end

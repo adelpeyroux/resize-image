@@ -5,7 +5,7 @@ f = figure('deletefcn', 'clear global; close all;', ...
 % create a button (default style)
 % Image panel, contien le boutton pour charger une image et les infos de cette image
 
-in_file = "default.png";
+in_file = 'default.png';
 
 global input;
 input = imread(in_file);
@@ -77,6 +77,6 @@ EnergyPreview = axes('parent', hpmid, 'Units', 'normalized', 'position', [0.5 .0
                       imagesc(EnergyPreview, imgradient(rgb2gray(im2double(input)), 'sobel'));
                    
 hpbot = uipanel(f, 'Title','Result','FontSize',12,...
-             'Position',[0 0 1 .60], "Units", 'normalized');    
+             'Position',[0 0 1 .60], 'Units', 'normalized');    
         
 end
