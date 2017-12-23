@@ -1,0 +1,5 @@
+function result = HoGfeature (image)
+
+addpath('./HOG/');
+
+end
