@@ -1,10 +1,11 @@
-function [ Flow ] = Get_Minimal_Flow( e )
+function [ Flow ] = Get_Flow( e, start )
+%GET_FLOW Summary of this function goes here
+%   Detailed explanation goes here
 s = size(e);
 h = s(1);
 w = s(2);
+col = start;
 Flow = zeros(h,1);
-
-[~, col] = min(e(h, :));		% minimum de la derniere ligne
 
 Flow(h) = col;
 
