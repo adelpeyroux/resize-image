@@ -12,7 +12,7 @@ global inputSize;
 global Energy;
 global EnergyFlow;
 
-filename = 'christmas_original.png';
+filename = '../Res/christmas_original.png';
 input = imread(filename);
 inputSize = size(input);
 

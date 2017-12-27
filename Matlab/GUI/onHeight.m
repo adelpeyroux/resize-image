@@ -6,7 +6,7 @@ value = round(get(slideHeight, 'value'));
 set(slideHeight, 'value', value);
 
 global textHeight;
-set(textHeight, 'String', value);
+set(textHeight, 'String', num2str(value));
 
 updateDim();
 
