@@ -1,11 +1,13 @@
 function onHeight(source, event)
 global slideHeight;
 
-value = get(slideHeight, 'value');
-value = round(value);
+value = round(get(slideHeight, 'value'));
 
 set(slideHeight, 'value', value);
 
 global textHeight;
 set(textHeight, 'String', value);
+
+updateDim();
+
 end

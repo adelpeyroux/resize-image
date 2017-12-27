@@ -1,11 +1,12 @@
 function onWidth(source, event)
 global slideWidth;
 
-value = get(slideWidth, 'value');
-value = round(value);
+value = round(get(slideWidth, 'value'));
 
 set(slideWidth, 'value', value);
 
 global textWidth;
 set(textWidth, 'String', value);
+
+updateDim();
 end

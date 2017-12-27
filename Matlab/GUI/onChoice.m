@@ -8,4 +8,6 @@ else
     isAdd = false;
 end
 
+updateDim();
+
 end
