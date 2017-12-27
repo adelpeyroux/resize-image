@@ -7,7 +7,7 @@ function updateEnergyPreview ()
   
   toDisp = rgb2gray(im2double(input));
   if (strcmp(EnergyFcn, 'Gradient'))
-          energy = imgradient(toDisp, 'sobel');
+        energy = imgradient(toDisp, 'sobel');
   else
         energy = imgradient(toDisp, 'sobel');
   end

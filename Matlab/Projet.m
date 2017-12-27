@@ -9,7 +9,7 @@ ImGray = rgb2gray(Im);
 [E_Sobel, ~] = imgradient(ImGray,'sobel');
 E_F_S = Error_Flow(E_Sobel);
 
-Min_Flow = Get_Minimal_Flow(E_F_S);
+Min_Flow = Get_Minimals_Flow(E_F_S);
 Min_Flow_Ruse = Get_Minimals_Flow(E_F_S, 1);
 
 Mins_Flows = Get_Minimals_Flow(E_F_S, 50);
@@ -25,13 +25,13 @@ for i = 1:100
 	Gray = rgb2gray(D);
 	[E_S, ~] = imgradient(Gray,'sobel');
 	E_F = Error_Flow(E_S);
-	Min_Flow = Get_Minimal_Flow(E_F);
+	Min_Flow = Get_Minimals_Flow(E_F);
 	D = Delete_Flow(D, Min_Flow);
 	
 	Gray = rgb2gray(A);
 	[E_S, ~] = imgradient(Gray,'sobel');
 	E_F = Error_Flow(E_S);
-	Min_Flow = Get_Minimal_Flow(E_F);
+	Min_Flow = Get_Minimals_Flow(E_F);
 	A = Add_Flow(A, Min_Flow);
 end
 
