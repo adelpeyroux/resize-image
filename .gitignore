@@ -1,6 +1,7 @@
 # Fichiers Caches
 oct_*
 ~*
+*~
 **/.idea/**
 **/.vs*/**
 **/cmake-build-*/*

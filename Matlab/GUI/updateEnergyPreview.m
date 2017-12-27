@@ -6,8 +6,12 @@ global EnergyFlow;
 
 if (strcmp(EnergyDisp, 'Energy'))
 	imagesc(EnergyPreview, Energy);
+	axis off;
+	axis image;
 else
 	imagesc(EnergyPreview, EnergyFlow);	
+	axis off;
+	axis image;
 end
 
 axis off;

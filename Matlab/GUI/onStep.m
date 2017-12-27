@@ -1,6 +1,7 @@
 function onStep(source, event)
 global ResultPreview;
-global input;
+global result;
+global inputSize;
 global slideWidth;
 global slideHeight;
 
@@ -11,19 +12,19 @@ valueHeight = get(slideHeight, 'value');
 resWidth = zeros(nb, 1) + Inf;
 resHeight = zeros(nb, 1) + Inf;
 
-s_width = size(input,2);
-s_heigth = size(input,1);
+s_width = size(result,2);
+s_heigth = size(result,1);
 
 if valueWidth > 0
-	Gray = rgb2gray(input);
+	Gray = rgb2gray(result);
 	[E_S, ~] = imgradient(Gray,'sobel');
 	E_F = Error_Flow(E_S);
 	[Min_Flow_Width, resWidth] = Get_Minimals_Flow(E_F, nb);
 	
 end
 if valueHeight > 0
-	input = imrotate(input, 90);
-	Gray = rgb2gray(input);
+	result = imrotate(result, 90);
+	Gray = rgb2gray(result);
 	[E_S, ~] = imgradient(Gray,'sobel');
 	E_F = Error_Flow(E_S);
 	[Min_Flow_Height, resHeight] = Get_Minimals_Flow(E_F, nb);
@@ -33,21 +34,24 @@ id_width = randi(nb);
 id_height = randi(nb);
 
 if valueHeight > 0 && resWidth(id_width)/s_width > resHeight(id_height)/s_heigth
-	input = get_choice(input, Min_Flow_Height(:,id_height));
-	input = imrotate(input, -90);
-	valueHeight = valueHeight - 1
+	result = get_choice(result, Min_Flow_Height(:,id_height));
+	result = imrotate(result, -90);
+	valueHeight = valueHeight - 1;
 	set(slideHeight, 'value', valueHeight);
 	onHeight();
 elseif valueWidth > 0 && resWidth(id_width)/s_width < resHeight(id_height)/s_heigth
 	if valueHeight > 0
-		input = imrotate(input, -90);
+		result = imrotate(result, -90);
 	end
-	input = get_choice(input, Min_Flow_Width(:,id_height));
-	valueWidth = valueWidth - 1
+	result = get_choice(result, Min_Flow_Width(:,id_height));
+	valueWidth = valueWidth - 1;
 	set(slideWidth, 'value', valueWidth);
 	onWidth();
 end
 
-imagesc(ResultPreview, input);
+inputSize = size(result);
+updateDim();
+imagesc(ResultPreview, result);
+axis off;
 axis image;
 end
