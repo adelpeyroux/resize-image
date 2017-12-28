@@ -34,7 +34,7 @@ id_width = randi(nb);
 id_height = randi(nb);
 
 if valueHeight > 0 && resWidth(id_width)/s_width > resHeight(id_height)/s_heigth
-	result = get_choice(result, Min_Flow_Height(:,id_height));
+	result = Get_Choice(result, Min_Flow_Height(:,id_height));
 	result = imrotate(result, -90);
 	valueHeight = valueHeight - 1;
 	set(slideHeight, 'value', valueHeight);
@@ -43,7 +43,7 @@ elseif valueWidth > 0 && resWidth(id_width)/s_width < resHeight(id_height)/s_hei
 	if valueHeight > 0
 		result = imrotate(result, -90);
 	end
-	result = get_choice(result, Min_Flow_Width(:,id_height));
+	result = Get_Choice(result, Min_Flow_Width(:,id_height));
 	valueWidth = valueWidth - 1;
 	set(slideWidth, 'value', valueWidth);
 	onWidth();
@@ -51,7 +51,5 @@ end
 
 inputSize = size(result);
 updateDim();
-imagesc(ResultPreview, result);
-axis off;
-axis image;
+imageShow(ResultPreview,result);
 end

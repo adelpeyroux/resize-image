@@ -5,7 +5,7 @@
 %*  2010,3,10
 %*  References :
 %*  - Dalal, N., Triggs, B.: Histograms of Oriented Gradients for Human detection. In: CVPR 2005 (2005)
-%*  - D. Lowe. Distinctive Image Features from Scale-Invariant Keypoints. IJCV, 60(2):91Â–110, 2004.
+%*  - D. Lowe. Distinctive Image Features from Scale-Invariant Keypoints. IJCV, 60(2):91–110, 2004.
 %***************************
 %
 %window is a sub window of the image to process

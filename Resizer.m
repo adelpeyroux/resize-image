@@ -2,8 +2,8 @@ function Resizer()
 %RESIZER Summary of this function goes here
 %   Detailed explanation goes here
 addpath('GUI'); 
-addpath('HOG');
-addpath('../Res') ;
+addpath('SRC');
+addpath('Res') ;
 
 global filename;
 global input;
@@ -12,7 +12,7 @@ global inputSize;
 global Energy;
 global EnergyFlow;
 
-filename = '../Res/christmas_original.png';
+filename = 'christmas_original.png';
 input = imread(filename);
 inputSize = size(input);
 
