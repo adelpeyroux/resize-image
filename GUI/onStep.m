@@ -5,7 +5,7 @@ global inputSize;
 global slideWidth;
 global slideHeight;
 
-nb = 5;
+nb = 10;
 valueWidth = get(slideWidth, 'value');
 valueHeight = get(slideHeight, 'value');
 

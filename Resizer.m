@@ -19,6 +19,7 @@ inputSize = size(input);
 Energy = imgradient(rgb2gray(im2double(input)), 'sobel');
 EnergyFlow = Error_Flow(Energy);
 
-initMenu();
+%initMenu();
+initMenu2();
 end
 
