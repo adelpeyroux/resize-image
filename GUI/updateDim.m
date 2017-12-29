@@ -15,6 +15,6 @@ else
 	d = d - [h, w, 0];
 end
 
-set(newSize, 'String', sprintf('New Dimension : %s', mat2str(d)));
+set(newSize, 'String', sprintf('New Dimension : %s', mat2str(d)))
 end
 
