@@ -85,13 +85,15 @@ choice = uibuttongroup(hpbot, 'units', 'normalized', ...
 	'position', [0.01 0.6 0.25 0.1], ...
 	'SelectionChangedFcn', @onChoice);
 global isAdd;
-isAdd = true;
-
-uicontrol(choice,'Style','radiobutton','String','Add','units', 'normalized', ...
-	'Position',[0.05 0.3 0.5 0.5], 'selected', 'on');
 
 uicontrol(choice,'Style','radiobutton', 'String','Delete',...
-	'units', 'normalized', 'Position',[0.5 0.3 0.5 0.5]);
+	'units', 'normalized', 'Position',[0.05 0.3 0.5 0.5],'selected', 'on');
+
+uicontrol(choice,'Style','radiobutton','String','Add','units', 'normalized', ...
+	'Position',[0.5 0.3 0.5 0.5] );
+
+
+isAdd = false;
 
 % HEIGHT SLIDER
 uicontrol(hpbot,'Style','text', 'Units', 'normalized',...
