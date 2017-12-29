@@ -5,7 +5,7 @@
 %*  2010,3,10
 %*  References :
 %*  - Dalal, N., Triggs, B.: Histograms of Oriented Gradients for Human detection. In: CVPR 2005 (2005)
-%*  - D. Lowe. Distinctive Image Features from Scale-Invariant Keypoints. IJCV, 60(2):91–110, 2004.
+%*  - D. Lowe. Distinctive Image Features from Scale-Invariant Keypoints. IJCV, 60(2):91ï¿½110, 2004.
 %***************************
 %
 %window is a sub window of the image to process
@@ -90,7 +90,8 @@ for cellI=1:cellNumI
         
                 
         if(strcmp('showWindow',showWindow))
-            subplot(cellNumI,cellNumJ, (cellI-1)*cellNumJ+cellJ);
+            figure(1);
+            plot(cellNumI,cellNumJ, (cellI-1)*cellNumJ+cellJ);
             vector=permute(OrientationBin(cellI,cellJ,:),[3,2,1]);
             bar(vector);
             %remove xticks and yticks
