@@ -4,16 +4,16 @@ global input;
 global Energy;
 global EnergyFlow;
 
-1
-
 toDisp = rgb2gray(im2double(input));
-if (strcmp(EnergyFcn, 'Gradient'))
-	Energy = imgradient(toDisp, 'sobel');
-elseif (strcmp(EnergyFcn, 'HoG'))
-  2
-  Energy = HoGError(toDisp, 3);
+
+if (!is_octave)
+  Energy = imgradient(toDisp, EnergyFcn);
 else
-	Energy = imgradient(toDisp, 'sobel');
+  if (strcmp(EnergyFcn, 'central') | strcmp(EnergyFcn, 'intermediate'))
+    Energy = imgradient(toDisp, strcat([EnergyFcn, 'difference']));
+  else
+    Energy = imgradient(toDisp, EnergyFcn);
+  end
 end
 
 EnergyFlow = Error_Flow(Energy);
