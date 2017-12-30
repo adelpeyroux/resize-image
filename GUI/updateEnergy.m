@@ -14,9 +14,10 @@ else
   else
     Energy = imgradient(toDisp, EnergyFcn);
   end
+
 end
 
 EnergyFlow = Error_Flow(Energy);
-
 updateEnergyPreview();
+
 end

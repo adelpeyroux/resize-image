@@ -63,7 +63,6 @@ uicontrol(bg2,'Style','radiobutton','String','EnergyFlow',...
 
 % ENEGY PREVIEW
 global Energy;
-
 global EnergyPreview;
 EnergyPreview = axes('parent', hpmid, 'position', [0.26 0.01 0.73 0.99]);
 imageShow(EnergyPreview, Energy);
@@ -88,10 +87,11 @@ uicontrol(hpbot, 'Style', 'pushbutton', 'String', 'Save',...
 	'Callback', @onSave);
 
 % ADD OR DELETE
+global isAdd;
+isAdd = false;
 choice = uibuttongroup(hpbot, 'units', 'normalized', ...
 	'position', [0.01 0.6 0.25 0.1], ...
 	'SelectionChangedFcn', @onChoice);
-global isAdd;
 
 uicontrol(choice,'Style','radiobutton', 'String','Delete',...
 	'units', 'normalized', 'Position',[0.05 0.3 0.5 0.5],'selected', 'on');
@@ -99,8 +99,6 @@ uicontrol(choice,'Style','radiobutton', 'String','Delete',...
 uicontrol(choice,'Style','radiobutton','String','Add','units', 'normalized', ...
 	'Position',[0.5 0.3 0.5 0.5] );
 
-
-isAdd = false;
 
 % HEIGHT SLIDER
 uicontrol(hpbot,'Style','text', 'Units', 'normalized',...
@@ -115,7 +113,6 @@ global textHeight;
 textHeight = uicontrol(hpbot,'Style','text', 'Units', 'normalized',...
 	'Position', [0.26, 0.375, 0.05, 0.1], 'String', '10');
 
-
 % WIDTH SLIDER
 uicontrol(hpbot,'Style','text', 'Units', 'normalized',...
 	'Position',[0.01, 0.25, 0.25, 0.1],'String', 'Width' );
@@ -128,7 +125,6 @@ slideWidth = uicontrol ( hpbot, 'style', 'slider', 'string', 'Width',...
 global textWidth;
 textWidth = uicontrol(hpbot,'Style','text', 'Units', 'normalized',...
 	'Position',[0.26, 0.175, 0.05, 0.1], 'String', '10' );
-
 
 % Size
 global newSize;
