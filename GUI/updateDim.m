@@ -4,11 +4,11 @@ global slideHeight;
 global slideWidth;
 global newSize;
 global inputSize;
+global isAdd;
 
 h = round(get(slideHeight, 'value'));
 w = round(get(slideWidth, 'value'));
 d = inputSize;
-global isAdd;
 if isAdd
 	d = d + [h, w, 0];
 else

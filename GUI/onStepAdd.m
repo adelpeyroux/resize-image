@@ -3,7 +3,6 @@ function onStepAdd(source, event)
 global result;
 global slideWidth;
 global slideHeight;
-
 global ResultPreview;
 
 v = get(slideWidth, 'value');
@@ -45,9 +44,9 @@ for tmp =1:2
     
 end
 result = imrotate(result, -180);
+
 global inputSize;
 inputSize = size(result);
-
 
 set(slideWidth, 'value', 0);
 onWidth();
