@@ -6,7 +6,7 @@ global EnergyFlow;
 
 toDisp = rgb2gray(im2double(input));
 
-if (!is_octave)
+if (~is_octave)
   Energy = imgradient(toDisp, EnergyFcn);
 else
   if (strcmp(EnergyFcn, 'central') | strcmp(EnergyFcn, 'intermediate'))
